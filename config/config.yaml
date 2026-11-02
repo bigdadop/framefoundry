@@ -1,0 +1,58 @@
+# FrameFoundry main configuration. Command-line options override these values.
+# Paths are relative to the FrameFoundry folder unless absolute. Never put secrets here.
+
+output:
+  directory: output            # each run creates output/<campaign>/ (never overwritten without --overwrite)
+  aspect_ratio: "16:9"         # 16:9 | 9:16 | 1:1 | 4:5   (or use --resolution WxH)
+  fps: 30
+  video_codec: libx264         # H.264
+  pix_fmt: yuv420p
+  crf: 18                      # x264 quality (lower = better/larger); 16-20 is visually lossless for this content
+  preset: medium               # x264 speed/efficiency trade-off
+  audio_codec: aac
+  audio_bitrate: 256k
+  audio_sample_rate: 48000
+  fade_out: 0.45               # seconds of fade to black at the very end
+  keep_intermediates: true     # keep EDL, timings, proxies, per-line takes for re-editing/debugging
+
+style:
+  default_profile: generic_promo   # templates/profiles/<name>.yaml (see ./framefoundry.sh profiles)
+
+rendering:
+  jobs: auto                   # parallel render processes (auto = CPU threads - 1, max 8)
+  motion_blur: true            # sub-frame motion blur on fast camera moves
+  hardware_encoder: none       # none (libx264, tested) | h264_vaapi | h264_nvenc (experimental, see README)
+
+audio:
+  narration_lufs: -16.0        # voice chain target
+  master_lufs: -14.0           # final mix (YouTube / social loudness)
+  true_peak: -1.0
+  music_bed_db: -5.0           # music level relative to the narration
+  ducking: true                # sidechain-duck the music under the voice
+  noise_reduction: false       # FFT denoise for uploaded narration recorded in noisy rooms
+  trim_silence: true           # trim leading/trailing silence of narration takes
+  music_fade_in: 0.03
+  music_fade_out: 1.5
+  loop_music: true             # loop short tracks on bar boundaries
+
+alignment:
+  backend: whisper             # word timings: whisper (faster-whisper, MIT) | estimate (no model)
+  whisper_model: large-v3-turbo  # tiny | base | small | medium | large-v3 | large-v3-turbo
+  device: cpu                  # cpu | cuda | auto
+  compute_type: int8           # int8 (CPU) | float16 (GPU)
+  beam_size: 5
+
+browser:
+  viewport: [1920, 1080]       # CSS pixels of the recorded browser window
+  device_scale_factor: 1.5     # supersampling for crisp zoom-ins
+  max_seconds: 60              # per recording
+  navigation_timeout: 45
+  allow_risky_actions: false   # never click buy/submit/join/delete/... unless a step is explicitly authorised
+  private_strings: []          # text to blur live while recording (names, e-mails, account ids)
+
+paths:
+  models: models               # all model weights are downloaded here (HF_HOME / TORCH_HOME)
+  tmp: tmp
+  logs: logs
+  profiles: templates/profiles
+  fonts: assets/fonts

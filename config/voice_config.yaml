@@ -1,0 +1,46 @@
+# Voice generation settings.
+#
+# FrameFoundry never needs a paid voice API. Options, in order of preference:
+#   1. --voiceover FILE      your own recorded narration (always works, no model needed)
+#   2. engine: chatterbox    Chatterbox Multilingual V3 by Resemble AI — MIT licence (commercial use OK).
+#                            English + Hindi (Hinglish via Devanagari/Latin mixed input). Install: ./install.sh --with-tts
+#   3. engine: omnivoice     OmniVoice by k2-fsa — code Apache-2.0 but pretrained weights CC-BY-NC:
+#                            NON-COMMERCIAL ONLY. Needs allow_non_commercial_models: true and
+#                            ./install.sh --with-omnivoice --accept-noncommercial-models
+#
+# Voice cloning (--voice-reference) is only performed with --confirm-voice-permission, i.e. when you
+# confirm you have the speaker's permission. Generated Chatterbox audio carries Resemble AI's
+# imperceptible Perth watermark.
+
+engine: auto                       # auto (chatterbox if installed) | chatterbox | omnivoice | none
+allow_non_commercial_models: false # must be true to use omnivoice
+
+chatterbox:
+  model: v3                        # multilingual checkpoint: v3 (recommended) | v2
+  exaggeration: 0.5                # expressiveness 0.25-1.0
+  cfg_weight: 0.5                  # pacing/adherence; lower (~0.3) for fast reference speakers
+  temperature: 0.8
+  seed: 7                          # fixed seed = repeatable takes
+  device: cpu                      # cpu | cuda
+  max_retries: 2                   # regenerate a line if the read-back check fails
+
+omnivoice:
+  steps: 32
+  guidance_scale: 2.0
+  seed: 0
+  device: cpu
+
+reference:                         # --voice-reference preparation
+  min_seconds: 5.0
+  max_seconds: 11.0
+  separate_music: auto             # auto | yes | no (Demucs vocal isolation when music is detected)
+
+assembly:                          # how per-line takes are joined into one narration
+  line_gap: 0.12
+  section_gap: 0.24
+  lead_in: 0.15
+  tail: 0.25
+
+qa:
+  asr_readback: true               # transcribe each generated line and compare with the script
+  max_char_error: 0.35             # lines above this character error rate are regenerated (then flagged)

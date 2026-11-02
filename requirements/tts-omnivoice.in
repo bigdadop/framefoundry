@@ -1,0 +1,11 @@
+# OmniVoice environment (.venv-omnivoice) — OPTIONAL and NON-COMMERCIAL (pretrained weights CC-BY-NC).
+# omnivoice itself is installed from third_party/OmniVoice (official source, pinned commit) with --no-deps,
+# which skips gradio / tensorboardX / webdataset (demo UI and training only).
+torch==2.8.0
+torchaudio==2.8.0
+transformers>=5.3,<6
+accelerate
+pydub
+soundfile
+librosa==0.11.0
+numpy<2.5

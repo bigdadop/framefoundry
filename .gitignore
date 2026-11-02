@@ -1,0 +1,42 @@
+# Environments, tools and caches created by install.sh
+.venv/
+.venv-tts/
+.venv-omnivoice/
+.framefoundry/
+models/
+__pycache__/
+*.pyc
+.pytest_cache/
+tests/fixtures/generated/
+
+# User data and outputs (never published)
+input/*
+!input/README.md
+output/
+tmp/
+logs/
+local/
+templates/profiles/local/
+browser_profiles/
+*.sqlite
+*.db
+
+# Media, model weights and secrets
+*.mp4
+*.mov
+*.webm
+*.wav
+*.mp3
+*.m4a
+*.flac
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+*.onnx
+.env
+.env.*
+*.pem
+*.key
+cookies*.json
+storage_state*.json

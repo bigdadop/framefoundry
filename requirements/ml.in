@@ -1,0 +1,11 @@
+# Optional ML extras installed into the core environment (.venv):
+#   Demucs (music / voice separation) and MarianMT (opus-mt) machine translation.
+# torch/torchaudio are installed separately by install.sh from the PyTorch CPU index (or PyPI for CUDA)
+# and are omitted from the lock files (requirements/ml.lock-<arch>.txt).
+-r core.in
+torch==2.8.0
+torchaudio==2.8.0
+demucs==4.1.0
+transformers>=5.3,<6
+sentencepiece
+sacremoses

@@ -1,0 +1,17 @@
+---
+brand: Lumen Notes
+tagline: Socho. Save karo.
+---
+# Hook
+Itne saare ideas, aur rakhne ki koi jagah nahi?
+Har jagah notes, kuch bhi *organised* nahi.
+
+# Product
+Miliye Lumen Notes se.
+[image:dashboard.jpg] Apna koi bhi idea seconds mein capture karo.
+[image:smart_folders.jpg] Smart folders aapke notes *automatically* sort karte hain.
+[video:demo_clip.mp4] Poora project ek link mein apni team ke saath share karo.
+
+# Call to action
+Aaj hi free mein shuru karo.
+Socho. Save karo.

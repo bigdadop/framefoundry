@@ -1,0 +1,58 @@
+# Clean explainer style — calmer pacing for tutorials, software walkthroughs and YouTube intros.
+# Crossfades instead of whips, gentle camera, boxed subtitles with word-by-word (karaoke) highlight,
+# no stickers or exclamation marks.
+name: clean_explainer
+description: Calm tutorial / walkthrough style — crossfades, gentle camera, boxed karaoke subtitles, no stickers.
+
+palette:
+  cards:
+    - {bg: "#FFFFFF", word: "#F1F3F6"}
+    - {bg: "#F5F7FA", word: "#E8ECF2"}
+  accents: ["#0F766E", "#1D4ED8", "#B45309"]
+  ink: "#1F2937"
+  end_bg: "#111827"
+  end_word: "#1A2332"
+  glow: "#14B8A6"
+  tagline: "#5EEAD4"
+
+cards:
+  bg_word: false
+  max_words: 6
+  keyword_height: 0.26
+  stickers: false
+  bang_on_punct: false
+  slam_emphasis: false
+
+subtitles:
+  size: 0.05
+  max_words: 6
+  box: "#000000"
+  karaoke: true
+  highlight_color: "#5EEAD4"
+  emph_glow: 0.0
+
+transitions:
+  web_web: fade
+  card_web: fade
+  web_card: fade
+  card_card: cut
+  to_end: fade
+  fade_duration: 0.4
+
+camera:
+  zoom_min: 1.05
+  zoom_base: 1.35
+  zoom_max: 1.7
+  punch_on_emphasis: false
+  max_speed: 1.8
+  grade: {contrast: 1.0, sat: 1.0}
+
+structure:
+  hook_lines: 1
+  cta_lines: 1
+  flash_last_line: false
+  sticker_every_web: 0
+  end_hold: 3.0
+
+rhythm: {words_per_second: 2.6}
+music: {bed_db: -8.0}

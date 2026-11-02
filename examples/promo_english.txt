@@ -1,0 +1,18 @@
+---
+brand: Lumen Notes
+tagline: Think it. Keep it.
+website: https://example.com
+---
+# Hook
+Too many ideas, and nowhere to keep them?
+Notes everywhere. *Nothing* organised.
+
+# Product
+Meet Lumen Notes.
+[image:dashboard.jpg] Capture any idea in seconds, from any device.
+[image:smart_folders.jpg] Smart folders sort your notes *automatically*.
+[video:demo_clip.mp4] Share a whole project with your team in one link.
+
+# Call to action
+Start free today at lumennotes dot app.
+Think it. Keep it.

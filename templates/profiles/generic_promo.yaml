@@ -1,0 +1,91 @@
+# Generic promo style — the default FrameFoundry editing grammar (brand-neutral).
+# Derived from the editing parameters measured for a fast Hinglish product reel: typographic hook,
+# hard cut to real footage with a cursor-following camera, whips between footage, phrase-level
+# pop-in subtitles, flash-word CTA and a dark end card that lands on the music sting.
+# Copy it to templates/profiles/local/<your_brand>.yaml and change colours/fonts for your brand.
+name: generic_promo
+description: Fast, punchy product promo — kinetic type hook, real footage with camera moves, whips, pop-in subtitles, end card.
+
+palette:
+  cards:
+    - {bg: "#F7F5F0", word: "#ECE7DC"}
+    - {bg: "#EEF3FA", word: "#DCE5F2"}
+    - {bg: "#FFF1E6", word: "#F8E0CC"}
+    - {bg: "#F2F0FF", word: "#E2DEFA"}
+  accents: ["#2563EB", "#DB2777", "#EA580C", "#7C3AED"]
+  ink: "#111827"
+  alert: "#E0251B"
+  end_bg: "#0F172A"
+  end_word: "#18223A"
+  glow: "#6366F1"
+  tagline: "#F472B6"
+
+fonts:            # Latin fonts; Devanagari text automatically uses Teko (display) / Poppins (body)
+  display: oswald
+  display_bold: oswald-bold
+  display_med: oswald-med
+  body: inter
+  body_semi: inter-semi
+  bg_word: bebas
+  subtitle: inter-semi
+  subtitle_emph: inter-italic
+  brand: bebas
+
+cards:
+  bg_word: true          # giant faded topic word behind the card text (brand bg_word)
+  max_words: 5           # words per kinetic card before a new card starts
+  keyword_height: 0.34   # keyword size (fraction of the short frame side)
+  small_height: 0.105
+  stickers: true         # use transparent PNG cut-outs from --assets-dir as pop-in stickers
+  bang_on_punct: true    # red "!" on exclamations / questions (16:9 only)
+  slam_emphasis: true
+
+subtitles:
+  enabled: true
+  on_cards: false        # cards already show the words; subtitles on footage only
+  size: 0.0556
+  y: 0.896
+  min_words: 2
+  max_words: 4
+  color: "#FFFFFF"
+  shadow: 0.62
+  emph_glow: 0.55
+  box: null
+  karaoke: false
+
+transitions:
+  web_web: whip
+  card_web: cut
+  web_card: cut
+  card_card: cut
+  to_end: cut
+  duration: 0.22
+  alternate: true
+
+camera:
+  zoom_min: 1.3
+  zoom_base: 2.0
+  zoom_max: 2.7
+  follow_cursor: true
+  punch_on_emphasis: true
+  max_speed: 2.4
+  min_speed: 0.45
+  grade: {contrast: 1.04, sat: 1.06}
+
+structure:
+  hook_lines: 3
+  cta_lines: 2
+  reveal: true
+  flash_last_line: true
+  flash_max_words: 3
+  end_card: true
+  end_hold: 3.6
+  sting_pad: 0.34
+  sticker_every_web: 3
+
+rhythm: {words_per_second: 3.0, line_gap: 0.12, section_gap: 0.24, max_shot: 4.0}
+watermark: {enabled: true, card: card, web: corner}
+endcard: {slow_zoom: 0.035}
+music: {bed_db: -5.0, duck: true, fade_in: 0.03, fade_out: 1.5, target_lufs: -14}
+voice: {speed: 1.0, lead_in: 0.15}
+output: {aspect: "16:9", fps: 30, fade_out: 0.45}

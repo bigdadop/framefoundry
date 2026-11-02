@@ -1,0 +1,21 @@
+# Chatterbox Multilingual TTS environment (.venv-tts) — kept separate because chatterbox pins
+# torch 2.6 / numpy<2 / transformers 5.2, which conflict with the core stack.
+# chatterbox itself is installed by install.sh from the official repository at a pinned commit with
+# --no-deps (that skips its gradio demo UI). These are its runtime dependencies.
+torch==2.6.0
+torchaudio==2.6.0
+numpy==1.26.4
+librosa==0.11.0
+s3tokenizer==0.2.0
+transformers==5.2.0
+diffusers==0.29.0
+resemble-perth==1.0.1
+conformer==0.3.2
+safetensors==0.5.3
+pykakasi==2.3.0
+spacy-pkuseg==1.0.1
+pyloudnorm==0.1.1
+omegaconf==2.3.0
+soundfile==0.14.0
+# perth (watermarker) imports pkg_resources; uv seeds 3.12 venvs without setuptools
+setuptools==80.9.0

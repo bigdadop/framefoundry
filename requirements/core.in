@@ -1,0 +1,14 @@
+# FrameFoundry core environment (.venv). Top-level pins = versions the original pipeline was tested with.
+# Lock: requirements/core.lock.txt (generated with: uv pip compile --universal --python-version 3.12)
+numpy==2.4.6
+scipy==1.17.1
+opencv-python-headless==5.0.0.93
+pillow==13.0.0
+soundfile==0.14.0
+librosa==0.11.0
+pyyaml==6.0.3
+playwright==1.64.1
+faster-whisper==1.2.1
+ctranslate2==4.8.4
+# faster-whisper 1.2.1 passes metadata_errors= to av.open(), removed in PyAV 19
+av==18.1.0

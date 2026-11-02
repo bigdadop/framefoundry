@@ -1,0 +1,30 @@
+[project]
+name = "framefoundry"
+version = "1.0.0"
+description = "FrameFoundry — From Script to Screen: a local, reusable AI-assisted video-production engine (CLI)."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.12,<3.13"
+authors = [{ name = "Aditya" }]
+keywords = ["video", "ffmpeg", "playwright", "tts", "subtitles", "hindi", "hinglish", "marketing"]
+classifiers = [
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: POSIX :: Linux",
+    "Topic :: Multimedia :: Video",
+]
+# Dependencies are installed by ./install.sh from the pinned lock files in requirements/.
+
+[project.scripts]
+framefoundry = "framefoundry.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+markers = [
+    "integration: needs FFmpeg / Chromium and takes longer",
+    "models: needs downloaded model weights (Whisper / Chatterbox)",
+]
+addopts = "-ra"

@@ -1,0 +1,39 @@
+# Language handling: English, Hindi (Devanagari), Romanised Hindi and Hinglish (code-switched).
+#
+#   --language auto|english|hindi|hinglish      (auto = detect from the script)
+#   --all-languages                              english + hindi + hinglish versions
+#
+# Detection is rule-based and transparent (no model download): Devanagari share, a Romanised-Hindi
+# lexicon (hai, karo, mein, chahiye, ...) and an English lexicon. Romanised Hindi is never assumed
+# to be English. See: ./framefoundry.sh detect-language input/script.txt
+
+default: auto
+all_languages: [english, hindi, hinglish]
+
+whisper_language:          # language hint for transcription / word alignment
+  english: en
+  hindi: hi
+  hinglish: hi
+
+tts_language:              # language id passed to the voice engine
+  english: en
+  hindi: hi
+  hinglish: hi
+
+hinglish:
+  tts_hindi_words: devanagari   # Romanised Hindi words are converted to Devanagari for the TTS input only
+  subtitle_script: roman        # subtitles keep the script exactly as written
+
+hindi:
+  subtitle_script: devanagari
+
+translation:               # used only when a language version has to be created (--all-languages or
+                           # --language X for a script written in another language) and no
+                           # script.<language>.txt variant was supplied. Output is marked machine-translated.
+  backend: marian          # marian (local Helsinki-NLP opus-mt, Apache-2.0) | none
+  models:
+    english-hindi: Helsinki-NLP/opus-mt-en-hi
+    hindi-english: Helsinki-NLP/opus-mt-hi-en
+
+detection:
+  hinglish_min_ratio: 0.2  # share of Romanised-Hindi words that makes a Latin-script sentence Hinglish
