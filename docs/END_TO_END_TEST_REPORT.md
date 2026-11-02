@@ -175,6 +175,17 @@ Before the first commit:
   the work started.
 * There was no previous Git history to preserve; nothing is force-pushed.
 
+After the first commit and push:
+* `gitleaks git` over the committed history: 1 commit scanned, *no leaks found*; `git interpret-trailers` finds no
+  trailers in the commit message.
+* Public repository `https://github.com/bigdadop/framefoundry` created under the authenticated account (owner
+  `bigdadop`), pushed with a normal `git push -u origin main` to the new, empty repository.
+* GitHub API: commit `9ef0476` on `main`, author and committer `Aditya <131614740+bigdadop@users.noreply.github.com>`,
+  linked by GitHub to the login `bigdadop`; `third_party/OmniVoice` is a submodule pointing at
+  `https://github.com/k2-fsa/OmniVoice` @ `5ba967c4d5b0f08244ae856b033eea583d1e4517`.
+* Follow-up commit: `LICENSE` reduced to the standard MIT text so GitHub detects the licence (the third-party
+  licence note lives in the README and `third_party/THIRD_PARTY_MANIFEST.md`).
+
 ## 8. Not tested / limitations
 * CUDA, NVENC and VA-API hardware paths (driver / libva limits above), ARM64, and distributions other than Ubuntu 24.04.
 * System-package installation through sudo (no password-less sudo on the test machine) — the static FFmpeg path was used.

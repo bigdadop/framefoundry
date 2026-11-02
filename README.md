@@ -245,7 +245,8 @@ After editing `project_files/edl.json` by hand: `./framefoundry.sh rerender outp
 Run with `--debug` for a traceback; every run writes `generation.log` in its folder.
 
 ## 17. Model and dependency licensing (summary)
-FrameFoundry's code is MIT (see `LICENSE`). Default components are licensed for commercial use: Chatterbox
+FrameFoundry's own code is MIT (see `LICENSE`); third-party software, fonts and model weights keep their own
+licences. Default components are licensed for commercial use: Chatterbox
 (MIT), Whisper/faster-whisper (MIT), Demucs (MIT), opus-mt (Apache-2.0), Playwright (Apache-2.0), FFmpeg
 (LGPL/GPL, used as a program), fonts (SIL OFL). **OmniVoice weights are non-commercial (CC-BY-NC)**, and the
 MMS aligner used by the original prototype (CC-BY-NC) has been removed. No weights are distributed with
